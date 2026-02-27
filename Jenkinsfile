@@ -25,10 +25,10 @@ pipeline {
         }
            stage('Docker Build and Push') {
             steps {
-              withDockerRegistry(credentialsId: 'docker-hub', url: 'https://quay.io/')  {
+              withDockerRegistry(credentialsId: 'gitlab-arijit', url: 'https://registry.gitlab.com/')  {
                 sh 'printenv'
-                sh 'docker build -t quay.io/anshuk6469/numeric-app:""$GIT_COMMIT"" .'
-                sh 'docker push quay.io/anshuk6469/numeric-app:""$GIT_COMMIT""'
+                sh 'docker build -t registry.gitlab.com/ArijitPaul24/numeric-app:""$GIT_COMMIT"" .'
+                sh 'docker push registry.gitlab.com/ArijitPaul24/numeric-app:""$GIT_COMMIT""'
             }
          }
       }
